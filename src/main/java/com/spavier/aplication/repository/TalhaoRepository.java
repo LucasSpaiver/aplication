@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TalhaoRepository extends JpaRepository<Talhao, Long> {
-    List<Talhao> findByFazendaId(Long fazendaId);
+    List<Talhao> findByFazendaId(Long fazenda);
 }

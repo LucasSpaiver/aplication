@@ -26,4 +26,8 @@ public class TalhaoService {
     public void deletar(Long id) {
         talhaoRepository.deleteById(id);
     }
+
+    public List<Talhao> listarPorFazenda(Long fazendaId) {
+        return talhaoRepository.findByFazendaId(fazendaId);
+    }
 }

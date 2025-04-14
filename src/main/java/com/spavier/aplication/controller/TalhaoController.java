@@ -2,6 +2,7 @@ package com.spavier.aplication.controller;
 
 import com.spavier.aplication.model.entity.Fazenda;
 import com.spavier.aplication.model.entity.Talhao;
+import com.spavier.aplication.repository.TalhaoRepository;
 import com.spavier.aplication.service.FazendaService;
 import com.spavier.aplication.service.TalhaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,13 @@ public class TalhaoController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/talhao/fazenda/{fazendaId}")
+    public ResponseEntity<List<Talhao>> listarPorFazenda(@PathVariable Long fazendaId) {
+        List<Talhao> talhoes = talhaoService.listarPorFazenda(fazendaId);
+        return ResponseEntity.ok(talhoes);
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
